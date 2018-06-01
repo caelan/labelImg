@@ -1071,6 +1071,7 @@ class MainWindow(QMainWindow, WindowMixin):
 
         if dirpath is not None and len(dirpath) > 1:
             self.lastOpenDir = dirpath
+            self.defaultSaveDir = dirpath
 
         self.dirname = dirpath
         self.filePath = None
@@ -1082,8 +1083,8 @@ class MainWindow(QMainWindow, WindowMixin):
             self.fileListWidget.addItem(item)
 
     def verifyImg(self, _value=False):
-        # Proceding next image without dialog if having any label
-         if self.filePath is not None:
+        # Proceeding next image without dialog if having any label
+        if self.filePath is not None:
             try:
                 self.labelFile.toggleVerify()
             except AttributeError:
@@ -1097,7 +1098,7 @@ class MainWindow(QMainWindow, WindowMixin):
             self.saveFile()
 
     def openPrevImg(self, _value=False):
-        # Proceding prev image without dialog if having any label
+        # Proceeding prev image without dialog if having any label
         if self.autoSaving.isChecked() and self.defaultSaveDir is not None:
             if self.dirty is True:
                 self.saveFile()
@@ -1118,7 +1119,7 @@ class MainWindow(QMainWindow, WindowMixin):
                 self.loadFile(filename)
 
     def openNextImg(self, _value=False):
-        # Proceding next image without dialog if having any label
+        # Proceeding next image without dialog if having any label
         if self.autoSaving.isChecked() and self.defaultSaveDir is not None:
             if self.dirty is True:
                 self.saveFile()
